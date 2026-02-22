@@ -13,7 +13,7 @@ docker build -t mich-chosei .
 - Dockerコンテナの実行
 
 ```
-docker run --rm --env-file .env 8080:8080 mich-chosei
+docker run --rm --env-file .env -p 8080:8080 mich-chosei
 ```
 
 - 開発用cron実行間隔
