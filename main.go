@@ -131,14 +131,14 @@ func main() {
 	c.Start()
 
 	// Final. Health check server for Koyeb
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Bot is alive.")
+	})
 	go func() {
-		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			fmt.Fprintf(w, "Bot is alive.")
-			log.Printf("Health check server starting on port %s", port)
-			if err := http.ListenAndServe(":"+port, nil); err != nil {
-				log.Fatal(err)
-			}
-		})
+		log.Printf("Health check server starting on port %s", port)
+		if err := http.ListenAndServe(":"+port, nil); err != nil {
+			log.Fatal(err)
+		}
 	}()
 
 	sc := make(chan os.Signal, 1)
