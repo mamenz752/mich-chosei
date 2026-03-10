@@ -1,0 +1,16 @@
+# .gcloudignore
+.gcloudignore
+.git
+.gitignore
+
+# devtools
+cmd/
+scripts/
+
+# env
+.env
+*.env
+
+# cache etc
+bin/
+obj/
